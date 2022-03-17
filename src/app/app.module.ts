@@ -7,13 +7,15 @@ import { AddProductComponent } from './add-product/add-product.component';
 import {FormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { DetailsProductComponent } from './details-product/details-product.component';
+import { TodoListComponent } from './todo-list/todo-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AddProductComponent,
-    DetailsProductComponent
+    DetailsProductComponent,
+    TodoListComponent
   ],
   imports: [
     BrowserModule,
