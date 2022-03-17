@@ -1,0 +1,42 @@
+<div>
+  <h2>Add Product</h2>
+  <form #f="ngForm">
+    <div class="form-group">
+      <label class="form-label">Id</label>
+      <input name="Id" type="text" class="form-control" required
+             [(ngModel)]="product.id" #i="ngModel" pattern="[0-9]+">
+      <div class="alert alert-danger" *ngIf="i.invalid && i.touched">
+        <div *ngIf="i.errors.required"> Id requires a value</div>
+        <div *ngIf="i.errors.pattern"> Id requires a number</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Title</label>
+      <input name="title" type="text" class="form-control" required
+             [(ngModel)]="product.title" #t="ngModel" minlength="3">
+      <div class="alert alert-danger" *ngIf="t.invalid && t.touched">
+        <div *ngIf="t.errors.required"> Title requires a value</div>
+        <div *ngIf="t.errors.pattern"> Title minlength equals 3</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Quantity</label>
+      <input name="quantity" type="text" class="form-control" required
+             [(ngModel)]="product.quantity" #q="ngModel" pattern="[1-9][0-9][0-9]">
+      <div class="alert alert-danger" *ngIf="q.invalid && q.touched">
+        <div *ngIf="q.errors.required"> Quantity requires a value</div>
+        <div *ngIf="q.errors.pattern"> Quantity requires a number between 100-999</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Price</label>
+      <input name="price" type="text" class="form-control" required
+             [(ngModel)]="product.price" #p="ngModel" pattern="[0-9]+">
+      <div class="alert alert-danger" *ngIf="p.invalid && p.touched">
+        <div *ngIf="p.errors.required"> Price requires a value</div>
+        <div *ngIf="p.errors.pattern"> Price requires a not null number </div>
+      </div>
+    </div>
+    <button class="btn btn-success mt-3" [disabled]="f.invalid" (click)="save()">save</button>
+  </form>
+</div>
